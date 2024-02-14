@@ -9,8 +9,13 @@ const Greeting = () => {
     const error = useSelector(state => state.greetings.error);
 
     useEffect(() => {
+        console.log('Dispatching fetchRandomGreeting...');
         dispatch(fetchRandomGreeting());
     }, [dispatch]);
+
+    console.log('isLoading:', isLoading);
+    console.log('error:', error);
+    console.log('greeting:', greeting);
 
     if (isLoading) {
         return <div>Loading...</div>;
